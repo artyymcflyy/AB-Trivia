@@ -65,11 +65,10 @@ let game = {
 		game.incorrectAnswers = 0;
 		game.unansweredQuestions = 0;
 
-		let timerLabel = $("<h2>").text("Time Remaining: ");
 		let timerSpan = $("<span>").attr("id", "timer");
 		let questionLabel = $("<h1>").attr("id", "question");
 
-		$("#timerDiv").append(timerLabel.append(timerSpan));
+		$("#timerDiv").append($("<h2>").append(timerSpan));
 		$("#questionDiv").append(questionLabel);
 		$("#gameStats").remove();
 
@@ -94,7 +93,11 @@ let game = {
 
 	},
 	startRoundTimer: function(){
-		$("#timer").text(this.roundTime + " seconds");
+		let formattedSeconds = this.roundTime;
+
+		if(this.roundTime % 10 != 0 || this.roundTime == 0) formattedSeconds = "0"+this.roundTime;
+
+		$("#timer").text(formattedSeconds);
 
 		this.roundTime--;
 
@@ -196,7 +199,7 @@ let game = {
 $(document).ready(function(){
 	let startGameButton = domElements.addStartGameButton("Start Game");
 
-	$("#container").prepend(startGameButton);
+	$("#inner-container").prepend(startGameButton);
 
 	$("#questionSection").hide();
 

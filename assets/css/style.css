@@ -41,6 +41,7 @@ button{
 	border-radius: 70px;
 	border: 2px solid #45C899;
 	padding: 5px 10px;
+	width: 100%;
 }
 
 #inner-container{
