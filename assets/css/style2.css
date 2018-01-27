@@ -1,0 +1,72 @@
+body{
+	font-family: "Arial Black", Gadget, sans-serif;
+	background-color: #353C94;
+	color: white;
+}
+h1{
+	font-size: 30pt;
+}
+
+h2{
+	font-size: 62pt;
+}
+
+button{
+	color: black;
+	background: none;
+	text-decoration: none;
+	border: none;
+	font-size: 20pt;
+	outline: none;
+	text-align: left;
+	font-weight: 300;
+}
+
+#outer-container{
+	position: absolute;
+	width: 50%;
+	left: 25%;
+	top:10%;
+}
+
+#timerDiv{
+	position: relative;
+	color: white;
+	text-align: center;
+	margin-bottom: 30px;
+	width: 100%;
+}
+
+#timer{
+	border-radius: 70px;
+	border: 2px solid #45C899;
+	padding: 5px 10px;
+}
+
+#inner-container{
+	position: relative;
+	text-align: center;
+	border: 5px solid;
+	border-radius: 25px;
+	background-color: white;
+	padding: 10px 15px;
+}
+
+#question{
+	color: black;
+	font-weight: 550;
+	margin-bottom: 30px;
+}
+
+#answersDiv button{
+	width: 100%;
+	height: 65px;
+	border-radius: 35px;
+	border: 2px solid #E5E5E5;
+	margin-bottom: 10px;
+}
+
+#answersDiv button:hover{
+	color: black;
+	background-color: #45C899;
+}
