@@ -40,18 +40,18 @@ button{
 }
 
 #redCircle{
+	left: 30%;
+	top: 20%;
 	background-color: #EA276D;
 }
 
 #yellowCircle{
-	left: 25%;
-	top: 30%;
+	left: 70%;
+	top: 10%;
 	background-color: #FFD255;
 }
 
 #purpleCircle{
-	left: 10%;
-	top: 80%;
 	background-color: #7176D4;
 }
 
@@ -62,8 +62,8 @@ button{
 }
 
 #tealCircle{
-	left: 70%;
-	top: 10%;
+	left: 10%;
+	top: 80%;
 	background-color: #45C899;
 }
 
