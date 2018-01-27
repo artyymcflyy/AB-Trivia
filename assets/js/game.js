@@ -29,14 +29,21 @@ let domElements = {
 			ul.append($("<li><button>"));
 		});
 	},
-	addStartGameButton: function(buttonText){
+	addStartGameElements: function(buttonText){
 		let startGameButton = $("<button>").attr("id", "startGameButton").text(buttonText);
+		let span0 = $("<span>").attr("id", "color0").text("Welcome ");
+		let span1 = $("<span>").attr("id", "color1").text(" AB");
+		let span2 = $("<span>").attr("id", "color2").text(" Trivia!");
+
+		let title = $("<h2>").attr("class","center").attr("id", "title").append(span0).append("to").append([span1, span2]);
 
 		startGameButton.on("click", function(){
 
 			$("#title").hide();
 
-			$("#questionSection").show();
+			$("#outerContainer").css({"top": "10%"})
+
+			$("#innerContainer").show();
 
 			game.initGame();
 
@@ -44,7 +51,7 @@ let domElements = {
 
 		});
 
-		return startGameButton;
+		return [title,startGameButton];
 	}
 }
 
@@ -66,9 +73,9 @@ let game = {
 		game.unansweredQuestions = 0;
 
 		let timerSpan = $("<span>").attr("id", "timer");
-		let questionLabel = $("<h1>").attr("id", "question");
+		let questionLabel = $("<h2>").attr("id", "question");
 
-		$("#timerDiv").append($("<h2>").append(timerSpan));
+		$("#timerDiv").append($("<h1>").append(timerSpan));
 		$("#questionDiv").append(questionLabel);
 		$("#gameStats").remove();
 
@@ -182,10 +189,10 @@ let game = {
 		if(game.roundNumber-1 == game.totalRounds) setTimeout(game.displayEndGame, 3000);
 	},
 	displayEndGame: function(){
-		let correctAnswersText = $("<h2>").text("Correct Answers: " + game.correctAnswers);
-		let incorrectAnswersText = $("<h2>").text("Incorrect Answers: " + game.incorrectAnswers);
-		let unansweredQuestionsText = $("<h2>").text("Unanswered Questions: " + game.unansweredQuestions);
-		let startGameButton = domElements.addStartGameButton("Play Again").css({"width": "50%"});
+		let correctAnswersText = $("<h3>").text("Correct Answers: " + game.correctAnswers);
+		let incorrectAnswersText = $("<h3>").text("Incorrect Answers: " + game.incorrectAnswers);
+		let unansweredQuestionsText = $("<h3>").text("Unanswered Questions: " + game.unansweredQuestions);
+		let startGameButton = domElements.addStartGameElements("Play Again!")[1].css({"width": "50%", "color": "black"});
 
 		let gameStats = $("<div>").attr("id", "gameStats").append([correctAnswersText, incorrectAnswersText, unansweredQuestionsText, startGameButton]);
 
@@ -197,17 +204,10 @@ let game = {
 }
 
 $(document).ready(function(){
-	let startGameButton = domElements.addStartGameButton("Start Game");
+	let startGameButton = domElements.addStartGameElements("Start Game");
 
-	$("#inner-container").prepend(startGameButton);
+	$("#outerContainer").css({"top": "40%"}).prepend(startGameButton);
 
-	$("#questionSection").hide();
+	$("#innerContainer").hide();
 
 });
-
-
-
-
-
-
-
