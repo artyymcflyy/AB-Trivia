@@ -17,7 +17,6 @@ h3{
 }
 
 button{
-	color: black;
 	background: none;
 	text-decoration: none;
 	border: none;
@@ -25,6 +24,47 @@ button{
 	outline: none;
 	text-align: left;
 	font-weight: 300;
+}
+
+#backgroundCircles{
+	position: absolute;
+	width: 100%;
+	height: 100%;
+}
+
+.circle{
+	position: absolute;
+	width: 200px;
+	height: 200px;
+	border-radius: 100px;
+}
+
+#redCircle{
+	background-color: #EA276D;
+}
+
+#yellowCircle{
+	left: 25%;
+	top: 30%;
+	background-color: #FFD255;
+}
+
+#purpleCircle{
+	left: 10%;
+	top: 80%;
+	background-color: #7176D4;
+}
+
+#whiteCircle{
+	left: 90%;
+	top: 70%;
+	background-color: white;
+}
+
+#tealCircle{
+	left: 70%;
+	top: 10%;
+	background-color: #45C899;
 }
 
 #outerContainer{
@@ -37,49 +77,29 @@ button{
 .center{
 	position: relative;
 	color: white;
-	text-align: center;
-	margin-bottom: 30px;
-	width: 100%;
-}
-
-#color0{
-	color: #7176D4;
-}
-
-#color1{
-	color: #EA276D;
-}
-
-#color2{
-	color: #FFD255;
 }
 
 #startGameButton{
 	color: white;
-	width: 100%;
-	height: 65px;
-	border-radius: 35px;
-	border: 2px solid #45C899;
 	margin: 20px 20px;
-	text-align: center;
 
 }
 
 #startGameButton:hover{
 	color: white;
-	background-color: #45C899;
 }
 
 #timer{
 	border-radius: 70px;
-	border: 2px solid #45C899;
 	padding: 5px 10px;
-	width: 100%;
+}
+
+#timerDiv{
+	margin-bottom: 40px;
 }
 
 #innerContainer{
 	position: relative;
-	text-align: center;
 	border: 5px solid;
 	border-radius: 25px;
 	background-color: white;
@@ -88,24 +108,43 @@ button{
 }
 
 #question{
-	color: black;
 	font-weight: 550;
-	margin-bottom: 30px;
 }
 
 #answersDiv button{
-	width: 100%;
-	height: 65px;
-	border-radius: 35px;
 	border: 2px solid #E5E5E5;
 	margin-bottom: 10px;
+	padding-left: 40px;
 }
 
-#answersDiv button:hover{
+button, #question, #gameStats, #answersDiv button:hover{
 	color: black;
+}
+
+.center, #startGameButton, #timer, #answersDiv button{
+	width: 100%;
+}
+
+#startGameButton, #answersDiv button{
+	border-radius: 35px;
+}
+
+#startGameButton, #timer{
+	border: 2px solid #45C899;
+}
+
+#startGameButton:hover, #answersDiv button:hover{
 	background-color: #45C899;
 }
 
-#gameStats{
-	color: black;
+.center, #startGameButton, #innerContainer{
+	text-align: center;
+}
+
+#startGameButton, #answersDiv button{
+	height: 65px;
+}
+
+.center, #question{
+	margin-bottom: 30px;
 }

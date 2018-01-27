@@ -31,9 +31,9 @@ let domElements = {
 	},
 	addStartGameElements: function(buttonText){
 		let startGameButton = $("<button>").attr("id", "startGameButton").text(buttonText);
-		let span0 = $("<span>").attr("id", "color0").text("Welcome ");
-		let span1 = $("<span>").attr("id", "color1").text(" AB");
-		let span2 = $("<span>").attr("id", "color2").text(" Trivia!");
+		let span0 = $("<span>").css({"color":"#7176D4"}).text("Welcome ");
+		let span1 = $("<span>").css({"color":"#EA276D"}).text(" AB");
+		let span2 = $("<span>").css({"color":"#FFD255"}).text(" Trivia!");
 
 		let title = $("<h2>").attr("class","center").attr("id", "title").append(span0).append("to").append([span1, span2]);
 
