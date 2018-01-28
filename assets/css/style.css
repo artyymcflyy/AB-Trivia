@@ -5,17 +5,8 @@ body{
 }
 
 h1{
-	font-size: 62pt;
+	font-size: 4.5rem;
 }
-
-h2{
-	font-size: 30pt;
-}
-
-h3{
-	font-size: 24pt;
-}
-
 button{
 	background: none;
 	text-decoration: none;
@@ -27,9 +18,7 @@ button{
 }
 
 #backgroundCircles{
-	position: absolute;
-	width: 100%;
-	height: 100%;
+	height: 50%;
 }
 
 .circle{
@@ -40,14 +29,14 @@ button{
 }
 
 #redCircle{
-	left: 30%;
-	top: 20%;
+	left: 70%;
+	top: 10%;
 	background-color: #EA276D;
 }
 
 #yellowCircle{
-	left: 70%;
-	top: 10%;
+	left: 25%;
+	top: 20%;
 	background-color: #FFD255;
 }
 
@@ -55,10 +44,10 @@ button{
 	background-color: #7176D4;
 }
 
-#whiteCircle{
-	left: 90%;
+#blueCircle{
+	left: 75%;
 	top: 70%;
-	background-color: white;
+	background-color: #65D6D6;
 }
 
 #tealCircle{
@@ -69,23 +58,11 @@ button{
 
 #outerContainer{
 	position: absolute;
-	width: 50%;
-	left: 25%;
-	top:10%;
+	width: 75%;
 }
 
 .center{
 	position: relative;
-	color: white;
-}
-
-#startGameButton{
-	color: white;
-	margin: 20px 20px;
-
-}
-
-#startGameButton:hover{
 	color: white;
 }
 
@@ -94,38 +71,54 @@ button{
 	padding: 5px 10px;
 }
 
-#timerDiv{
+#timerSection{
 	margin-bottom: 40px;
 }
 
 #innerContainer{
 	position: relative;
+	height: 460px;
 	border: 5px solid;
 	border-radius: 25px;
 	background-color: white;
 	padding: 10px 15px;
-	margin-top: 20px;
 }
 
 #question{
 	font-weight: 550;
+	margin-bottom: 30px;
 }
 
-#answersDiv button{
+#answerSection button{
 	border: 2px solid #E5E5E5;
 	margin-bottom: 10px;
 	padding-left: 40px;
 }
 
-button, #question, #gameStats, #answersDiv button:hover{
+#startGameButton{
+	margin-top: 20px;
+}
+
+#gameStats {
+    width: 50%;
+    margin: auto;
+    margin-bottom: 20px;
+}
+
+#startGameButton, #startGameButton:hover{
+	color: white;
+
+}
+
+button, #question, #gameStats, #answerSection button:hover{
 	color: black;
 }
 
-.center, #startGameButton, #timer, #answersDiv button{
+.center, #startGameButton, #timer, #answerSection button{
 	width: 100%;
 }
 
-#startGameButton, #answersDiv button{
+#startGameButton, #answerSection button{
 	border-radius: 35px;
 }
 
@@ -133,7 +126,7 @@ button, #question, #gameStats, #answersDiv button:hover{
 	border: 2px solid #45C899;
 }
 
-#startGameButton:hover, #answersDiv button:hover{
+#startGameButton:hover, #answerSection button:hover{
 	background-color: #45C899;
 }
 
@@ -141,10 +134,21 @@ button, #question, #gameStats, #answersDiv button:hover{
 	text-align: center;
 }
 
-#startGameButton, #answersDiv button{
+#startGameButton, #answerSection button{
 	height: 65px;
 }
 
-.center, #question{
-	margin-bottom: 30px;
+/*Small devices (landscape phones, 576px and up)*/
+@media (min-width: 325px) and (max-width: 500px){
+	h1{font-size: 18pt}
+	#questionSection h2{font-size: 18pt}
+	#answerSection ul{padding: 0}
+	div #gameStats{width: 100%}
+	#gameStats h3{font-size: 14pt}
+	#startGameButton{font-size: 14pt}
+	#timerSection h1{font-size: 45pt}
+	#answerSection ul li button{
+		font-size: 16pt;
+		padding-left: 30px;
+	}
 }

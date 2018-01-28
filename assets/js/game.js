@@ -23,7 +23,7 @@ let domElements = {
 	addButtonList: function(){
 		let ul = $("<ul>");
 
-		$("#answersDiv").append(ul);
+		$("#answerSection").append(ul);
 
 		$.each(questionsList[0].choices, function(){
 			ul.append($("<li><button>"));
@@ -35,7 +35,7 @@ let domElements = {
 		let span1 = $("<span>").css({"color":"#EA276D"}).text(" AB");
 		let span2 = $("<span>").css({"color":"#FFD255"}).text(" Trivia!");
 
-		let title = $("<h2>").attr("class","center").attr("id", "title").append(span0).append("to").append([span1, span2]);
+		let title = $("<h1>").attr("class","center").attr("id", "title").append([span0, "to", span1, span2]);
 
 		startGameButton.on("click", function(){
 
@@ -52,12 +52,24 @@ let domElements = {
 		});
 
 		return [title,startGameButton];
+	},
+	addBackgroundCircles: function(){
+		let backgroundDiv = $("<div>").attr("id", "backgroundCircles");
+		let circles = ["red", "yellow", "blue", "purple", "teal"];
+
+		$.each(circles, function(index, color){
+			console.log(color);
+			let circleDiv = $("<div>").attr("id", color+"Circle").attr("class", "circle");
+			backgroundDiv.append(circleDiv);
+		});
+
+		return backgroundDiv;
 	}
 }
 
 let game = {
 	totalRounds: questionsList.length-1,
-	roundTime: 10,
+	roundTime: 0,
 	roundNumber: 0,
 	correctAnswers: 0,
 	incorrectAnswers: 0,
@@ -66,6 +78,9 @@ let game = {
 	secondsTimer: null,
 	roundLoop: null,
 	betweenRoundLoop: null,
+	initRoundTimer: function(time){
+		return game.roundTime;
+	},
 	initGame: function(){
 		game.roundNumber = 0;
 		game.correctAnswers = 0;
@@ -75,8 +90,8 @@ let game = {
 		let timerSpan = $("<span>").attr("id", "timer");
 		let questionLabel = $("<h2>").attr("id", "question");
 
-		$("#timerDiv").append($("<h1>").append(timerSpan));
-		$("#questionDiv").append(questionLabel);
+		$("#timerSection").empty().append($("<h1>").append(timerSpan));
+		$("#questionSection").append(questionLabel);
 		$("#gameStats").remove();
 
 		game.initRound();
@@ -128,11 +143,11 @@ let game = {
 
 		domElements.addButtonList();
 
-		$("#question, #answersDiv ul li button").empty();
+		$("#question, #answerSection ul li button").empty();
 
 		$("#question").text(questionsList[game.roundNumber-1].question);
 
-		$.each($("#answersDiv ul li button"), function(index, element){
+		$.each($("#answerSection ul li button"), function(index, element){
 
 			let button = $(this);
 
@@ -169,19 +184,19 @@ let game = {
 			message = game.isAnswerCorrect ? "You are correct!" : "You are wrong!";
 		}
 
-		$("#question").empty().text(message).css({"font-size": "34px"});
+		$("#question").empty().text(message);
 	},
 	displayEndRound: function(){
 		let image = $("<img>");
 		let endRoundDiv = $("<div>").attr("id", "endRound");
 		let imageSrc = game.isAnswerCorrect ? questionsList[game.roundNumber-1].images[0] : questionsList[game.roundNumber-1].images[1]
 
-		image.attr("src", imageSrc);
+		image.attr("src", imageSrc).attr("class", "img-fluid");
 
 		clearTimeout(game.secondsTimer);
 		clearTimeout(game.roundLoop);
 
-		$("#answersDiv").empty().append(endRoundDiv);
+		$("#answerSection").empty().append(endRoundDiv);
 		$("#endRound").append(image);
 
 		game.displayGameMessage();
@@ -192,21 +207,23 @@ let game = {
 		let correctAnswersText = $("<h3>").text("Correct Answers: " + game.correctAnswers);
 		let incorrectAnswersText = $("<h3>").text("Incorrect Answers: " + game.incorrectAnswers);
 		let unansweredQuestionsText = $("<h3>").text("Unanswered Questions: " + game.unansweredQuestions);
-		let startGameButton = domElements.addStartGameElements("Play Again!")[1].css({"width": "50%", "color": "black"});
+		let startGameButton = domElements.addStartGameElements("Play Again!")[1].css({"color": "black"});
 
 		let gameStats = $("<div>").attr("id", "gameStats").append([correctAnswersText, incorrectAnswersText, unansweredQuestionsText, startGameButton]);
 
-		$("#questionDiv, #timerDiv").empty();
-		$("#questionSection").prepend(gameStats);
+		$("#questionSection, #timerSection").empty();
+		$("#timerSection").append($("<h1>").text("Good Job"));
+		$("#contentSection").prepend(gameStats);
 
 		startGameButton.show();
 	}
 }
 
 $(document).ready(function(){
-	let startGameButton = domElements.addStartGameElements("Start Game");
 
-	$("#outerContainer").css({"top": "40%"}).prepend(startGameButton);
+	//$(".container").prepend(domElements.addBackgroundCircles());
+
+	$("#outerContainer").css({"top": "40%"}).prepend(domElements.addStartGameElements("Start Game"));
 
 	$("#innerContainer").hide();
 
