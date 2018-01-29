@@ -58,7 +58,6 @@ let domElements = {
 		let circles = ["red", "yellow", "blue", "purple", "teal"];
 
 		$.each(circles, function(index, color){
-			console.log(color);
 			let circleDiv = $("<div>").attr("id", color+"Circle").attr("class", "circle");
 			backgroundDiv.append(circleDiv);
 		});
@@ -221,7 +220,7 @@ let game = {
 
 $(document).ready(function(){
 
-	//$(".container").prepend(domElements.addBackgroundCircles());
+	$(".container").prepend(domElements.addBackgroundCircles());
 
 	$("#outerContainer").css({"top": "40%"}).prepend(domElements.addStartGameElements("Start Game"));
 
