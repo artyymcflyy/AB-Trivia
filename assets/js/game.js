@@ -221,6 +221,4 @@ $(document).ready(function(){
 
 	$("#innerContainer").hide();
 
-	console.log(window);
-
 });
