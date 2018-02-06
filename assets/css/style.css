@@ -3,7 +3,6 @@ body{
 	background-color: #353C94;
 	color: white;
 }
-
 h1{
 	font-size: 4.5rem;
 }
@@ -11,6 +10,7 @@ button{
 	background: none;
 	text-decoration: none;
 	border: none;
+    outline: 0 !important;
 	font-size: 20pt;
 	outline: none;
 	text-align: left;

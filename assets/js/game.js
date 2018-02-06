@@ -37,7 +37,8 @@ let domElements = {
 
 		let title = $("<h1>").attr("class","center").attr("id", "title").append([span0, "to", span1, span2]);
 
-		startGameButton.on("click", function(){
+		startGameButton.on("click", function(event){
+			event.preventDefault();
 
 			$("#title").hide();
 
@@ -152,7 +153,9 @@ let game = {
 
 			button.text(questionsList[game.roundNumber-1].choices[index]);
 
-			button.on("click", function(){
+			button.on("click", function(event){
+				event.preventDefault();
+
 				game.checkAnswer(button);
 			});
 
@@ -186,17 +189,10 @@ let game = {
 		$("#question").empty().text(message);
 	},
 	displayEndRound: function(){
-		let image = $("<img>");
-		let endRoundDiv = $("<div>").attr("id", "endRound");
-		let imageSrc = game.isAnswerCorrect ? questionsList[game.roundNumber-1].images[0] : questionsList[game.roundNumber-1].images[1]
-
-		image.attr("src", imageSrc).attr("class", "img-fluid");
+		addGiphy(game.isAnswerCorrect, "350px", "400px");
 
 		clearTimeout(game.secondsTimer);
 		clearTimeout(game.roundLoop);
-
-		$("#answerSection").empty().append(endRoundDiv);
-		$("#endRound").append(image);
 
 		game.displayGameMessage();
 
@@ -214,6 +210,8 @@ let game = {
 		$("#timerSection").append($("<h1>").text("Good Job"));
 		$("#contentSection").prepend(gameStats);
 
+		addGiphy("Good Job", "200px", "250px");
+
 		startGameButton.show();
 	}
 }
@@ -225,5 +223,7 @@ $(document).ready(function(){
 	$("#outerContainer").css({"top": "40%"}).prepend(domElements.addStartGameElements("Start Game"));
 
 	$("#innerContainer").hide();
+
+	console.log(window);
 
 });
