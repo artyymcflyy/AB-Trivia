@@ -3,19 +3,16 @@ let questionsList = [
 		question: "What is the name of woody's friend that is a dog?",
 		choices: ["Campy", "Doggy", "Slinky", "Rex"],
 		answer: "Slinky",
-		images: ["https://media2.giphy.com/media/26tknCqiJrBQG6bxC/giphy.gif", "http://www.reactiongifs.com/r/wrong-gif.gif"]
 	},
 	{
 		question: "What year did Nickelodeon's 'The Last Airbender' release?",
 		choices: ["2009", "2005", "2010", "2007"],
 		answer: "2009",
-		images: ["https://media2.giphy.com/media/26tknCqiJrBQG6bxC/giphy.gif", "http://www.reactiongifs.com/r/wrong-gif.gif"]
 	},
 	{
 		question: "Which movie is considered the 'greatest christmas film' of all time'?",
 		choices: ["Home Alone", "The Santa Clause", "Scrooged", "Die Hard"],
 		answer: "Die Hard",
-		images: ["https://media2.giphy.com/media/26tknCqiJrBQG6bxC/giphy.gif", "http://www.reactiongifs.com/r/wrong-gif.gif"]
 	}
 ];
 
